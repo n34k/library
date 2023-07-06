@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content">
+        <div class="title">
+            <p>Library</p>
+        </div>
+        <div class="button-box">
+            <div id="add-button">
+                <p>Add Book</p>
+            </div>
+        </div>
+        <div class="main">
+            <form class="add-form" action="">
+                <img src="images/842855-200.png" alt="x" class="close" id="close-button">
+                <div class="input">
+                    <p>Title</p>
+                    <input maxlength="30" type="text" name="title" id="title"required>
+                </div>
+                <div class="input">
+                    <p>Author</p>
+                    <input maxlength="25" type="text" name="author" id="author" required>
+                </div>
+                <div class="input">
+                    <p>Pages</p>
+                    <input min="1" max="9999999" type="number" id="pages" name="pages"required>
+                </div>
+                <div class="input">
+                    <p>Read yet?</p>
+                    <input type="checkbox" id="read" name="read">
+                </div>
+                <button type="button" id="submit-button" class="submit-button">Add</button>
+            </form>
+            <div class="cardbox" id="card-box">
+                <div class="card" id="card">
+                    <div class="top-card">
+                        <p class="card-title">Title</p>                        
+                        <p class="card-pages">Pages</p>
+                        <p class="card-author">Author</p> 
+                    </div>
+                    <div class="middle-card">
+                        <button class="card-button">Not Read</button>
+                        <button class="card-button">Delete</button>
+                    </div>
+                    <div class="bottom-card">
+                        <p class="card-progress">In Progress</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
