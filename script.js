@@ -9,16 +9,17 @@ function Book(title, author, pages, read) {
 }
 
 const addButton = document.getElementById("add-button").addEventListener("click", function(){
-    document.querySelector(".add-form").style.display = "flex";
+    form.style.display = "flex";
     //document.querySelector(".main > *:not(form)").style.filter = "brightness(30%)";
 })
 
 const closeButton = document.getElementById("close-button").addEventListener("click" , function() {
-    document.querySelector(".add-form").style.display = "none";
+    form.style.display = "none";
     //document.querySelector(".main > *:not(form").style.filter = "brightness(100%)";
 })
 
 const main = document.querySelector(".main");
+const form = document.querySelector(".add-form");
 const titleBox = document.getElementById("title");
 const authorBox = document.getElementById("author");
 const pagesBox = document.getElementById("pages");
@@ -29,6 +30,20 @@ const authorText = document.querySelector(".card-author");
 const pagesText = document.querySelector(".card-pages");
 const progressText = document.querySelector(".card-progress");
 
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission to the server
+  
+    // Check if all required fields are filled
+    if (form.checkValidity()) {
+      // All fields are filled, perform form submission or other actions here
+      console.log('Form submitted successfully.');
+      // You can submit the form to the server using AJAX or other methods
+    } else {
+      // Some fields are missing, show error messages or other feedback
+      alert('Please fill in all required fields.');
+    }
+  });
+
 readBox.addEventListener("change", function() {
     if (this.checked) {
         this.value = "on";
@@ -38,10 +53,16 @@ readBox.addEventListener("change", function() {
 })
 
 const submitButton = document.getElementById("submit-button").addEventListener("click", function() {
-    addBookToLibrary();
-    console.log(myLibrary);
-    document.querySelector(".add-form").style.display = "none";
-})
+    if (form.checkValidity()) {
+        console.log('Form submitted successfully.');
+         addBookToLibrary();
+        console.log(myLibrary);
+        document.querySelector(".add-form").style.display = "none";
+    } else {
+        alert('Please fill in all required fields.');
+    }
+});
+   
 
 function addBookToLibrary() {
     for(var i = 0; i < myLibrary.length; i++) {
